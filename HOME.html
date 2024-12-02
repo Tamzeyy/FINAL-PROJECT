@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="Css-file.css">
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="navbar-left">   
+            <img src="logo.png" alt="PRMSU Logo">
+            <h1>PRMSU College of Engineering</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="HOME.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instruction</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Research</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="#">Extension</a>
+            <a href="#">History</a>
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-text">
+            <h1>BUILDING YOUR SUCCESS<h1>
+            <h1>ENGINEERING YOUR FUTURE<h1>
+        </div>
+    </div>
+
+     <!-- Carousel Section with Background -->
+     <div class="carousel-section">
+        <div class="slider">
+            <div class="slides-container" id="slidesContainer">
+                <div class="slide"><img src="Slide1.png" alt="Slide 1"></div>
+                <div class="slide"><img src="Slide2.png" alt="Slide 2"></div>
+                <div class="slide"><img src="Slide3.png" alt="Slide 3"></div>
+                <div class="slide"><img src="Slide4.png" alt="Slide 4"></div>
+                <div class="slide"><img src="Slide5.png" alt="Slide 5"></div>
+                <div class="slide"><img src="Slide6.png" alt="Slide 6"></div>
+                <div class="slide"><img src="Slide7.png" alt="Slide 7"></div>
+                <div class="slide"><img src="Slide8.png" alt="Slide 8"></div>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+  
+    <section class="vision-mission-policy">
+        <div class="vision-mission-container">
+            <div class="vision">
+                <h2>VISION</h2>
+                <p>PRMSU as a premier learner center and proactive university in a global society.</p>
+            </div>
+            <div class="mission">
+                <h2>MISSION</h2>
+                <p>
+                    The President Ramon Magsaysay State University shall primarily provide advanced and higher professional, technical, 
+                    special instructions in various disciplines; undertake research, extension, and income generation programs for 
+                    sustainable development of Zambales, the region, and the country.
+                </p>
+            </div>
+        </div>
+        <div class="quality-policy">
+            <h2>QUALITY POLICY</h2>
+            <img src="socotec.png" alt="Socotec Logo">
+            <p>
+                The President Ramon Magsaysay State University is committed to continually striving for excellence in instruction, 
+                research, extension, and production to strengthen global competitiveness, adhering to quality standards for the 
+                utmost satisfaction of its valued customers.
+            </p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <h2 class="gradient-text">LATEST NEWS</h2>
+        <div class="news-container">
+            <!-- Example News Item -->
+            <article class="news-item">
+                <img src="Slide9.png" alt="News Image" class="news-image">
+                <h3 class="news-title">New Engineering Program Launched</h3>
+                <p class="news-summary">PRMSU College of Engineering has introduced a new program focused on renewable energy technologies. Learn more about the opportunities this offers to students.</p>
+                <a href="news-details.html" class="read-more">Read More</a>
+            </article>
+
+            <article class="news-item">
+                <img src="Slide8.png" alt="News Image" class="news-image">
+                <h3 class="news-title">Students Win Robotics Competition</h3>
+                <p class="news-summary">Engineering students showcased their skills by winning the national robotics competition. This achievement highlights their technical prowess.</p>
+                <a href="news-details.html" class="read-more">Read More</a>
+            </article>
+
+            <article class="news-item">
+                <img src="Slide7.png" alt="News Image" class="news-image">
+                <h3 class="news-title">PRMSU Hosts Engineering Summit 2024</h3>
+                <p class="news-summary">Experts from across the country gathered at the Engineering Summit to discuss advancements in sustainable engineering solutions.</p>
+                <a href="news-details.html" class="read-more">Read More</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer" style="background-image: url('PRMSU.jfif');">
+        <p>Contact: info@prmsu.edu.ph | Copyright 2024 PRMSU College of Engineering</p>
+    </div>
+    
+    <script src="Java-Script.js" defer></script> 
+</body>
+</html>

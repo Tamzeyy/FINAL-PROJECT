@@ -1,0 +1,543 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Faculty - PRMSU College of Engineering</title>
+        <link rel="stylesheet" href="Css-file.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                flex: 1;
+            }
+            .profile {
+                display: flex;
+                align-items: center;
+                background-color: #f4f4f4;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+            .profile img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin-right: 20px;
+                object-fit: cover;
+            }
+            .profile-text h2 {
+                margin: 0;
+                font-size: 1.5rem;
+                color: #333;
+            }
+            .profile-text p {
+                margin: 5px 0 0;
+                color: #555;
+                line-height: 1.5;
+            }
+            .sidebar {
+                width: 250px;
+                background-color: #333;
+                color: white;
+                padding: 20px;
+                position: fixed; /* Fixed sidebar */
+                height: 100vh; /* Full height of the viewport */
+                overflow-y: auto;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            }
+            .sidebar h2 {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            .sidebar a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 10px 15px;
+                margin: 5px 0;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            .sidebar a:hover {
+                background-color: #575757;
+            }
+            .content {
+                margin-left: 270px; /* Space for the fixed sidebar */
+                padding: 20px;
+                width: 100%;
+            }
+            .department-content {
+                display: none;
+            }
+            .department-content.active {
+                display: block;
+            }
+            .faculty-card {
+                display: inline-block;
+                background-color: white;
+                border-radius: 10px;
+                padding: 15px;
+                margin: 10px;
+                width: 200px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+            }
+            .faculty-card img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .faculty-card:hover {
+                transform: scale(1.05);
+            }
+            .faculty-card h3 {
+                margin-top: 10px;
+                font-size: 1rem;
+            }
+            /* Breadcrumb */
+            .breadcrumb {
+                padding: 30px;
+                background-color: #ffffff;
+                color: white;
+            }
+
+            .breadcrumb a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin: 20px 0;
+                font-weight: bold;
+                color: #333;
+            }
+
+            /* Faculty Members Navbar */
+            .facultymembers-navbar {
+                background-color: #f14848;
+                padding: 10px 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .facultymembers-navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: inline-flex;
+            }
+
+            .facultymembers-navbar li {
+                margin: 0 10px;
+            }
+
+            .facultymembers-navbar a {
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .facultymembers-navbar a:hover {
+                background-color: #575757;
+            }
+
+            /* Faculty Members Section */
+            .faculty-section {
+                display: none; /* Initially hidden */
+                text-align: center;
+            }
+
+            .faculty-card {
+                display: inline-block;
+                background-color: white;
+                border-radius: 10px;
+                padding: 15px;
+                margin: 10px;
+                width: 400px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+            }
+
+            .faculty-card img {
+                width: 150px;
+                height: 150px;
+                border-radius: 60%;
+                object-fit: cover;
+            }
+
+            .faculty-card:hover {
+                transform: scale(1.05);
+            }
+
+            .faculty-card h3 {
+                margin-top: 10px;
+                font-size: 1rem;
+                color: #333;
+            }
+        </style>
+
+    </style>
+        </style>
+        <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="navbar-left">   
+            <img src="logo.png" alt="PRMSU Logo">
+            <h1>PRMSU College of Engineering</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="HOME.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instruction</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Research</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="#">Extension</a>
+            <a href="#">History</a>
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+    </div>
+
+</head>
+    <body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <!-- Section Title -->
+        <div class="section-title">
+         COLLEGE DEAN
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile">
+        <img src="DEBOMA.jpg" alt="Dean Image">
+        <div class="profile-text">
+            <h2>GILBERT D. DEBOMA, REE, M.Eng.</h2>
+            <p> Engr Gilbert D. Deboma is a faculty of the College of Engineering for 24 years with an Academic Rank of 
+                Associate Professor V. He is a graduate of Bachelor of Science in Electrical Engineering at Technological 
+                Institute of the Philippines – Quezon City. He finished his Master of Science in Electronics Engineering at 
+                Andong National University – South Korea. He is currently taking up PhD in Agricultural Engineering at Central
+                Luzon State University. Engr Deboma is an active member of the Institute of Integrated Electrical Engineers, Inc., 
+                the accredited professional organization of electrical practitioners of the Philippines.  
+                He is the current dean of the College of Engineering and concurrent Program Chairperson of the Electrical Engineering Department.</p>
+        </div>
+    </div>
+
+    <!-- Section Title -->
+    <div class="section-title">
+        CHAIRPERSONS
+
+    </div>
+    <div class="profile">
+        <img src="TABLIGAN.jpg" alt="Dean Image">
+        <div class="profile-text">
+            <h2>BS Civil Engineering (BSCE)</h2>
+             <h2>FERDINAND D. TABLIGAN, RCE, M.Eng. </h2>
+            <p> Contents to be published soon...</p>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="MARAVE.jpg" alt="Dean Image">
+        <div class="profile-text">
+            <h2>BS Computer Engineering (BSCpE)</h2>
+             <h2>MELOJEAN C. MARAVE, LPT, MSIT</h2>
+            <p> Engr. Melojean C. Marave has an extensive educational background, 
+                including a Doctorate in Information Technology from the Technological 
+                Institute of the Philippines and a Doctor of Education Major in Educational 
+                Management from Ramon Magsaysay Technological University, Iba Campus.
+                 She holds a Master of Science in Information Technology from the Polytechnic University of the Philippines
+                  – Sta. Mesa, Manila. Additionally, she completed a Post-Baccalaureate Certificate in Professional Education
+                   at Ramon Magsaysay Technological University Main Campus Iba, Zambales, and a Trade Course in IT Course Design 
+                   and Development from the National Computer Center, National Computer Institute, Diliman Q.C. Engr. Marave 
+                   finished CISCO Certified Network Associate Exploration 1, 2, 3, and 4 modules from UP Information Technology
+                   Training Center, UP Diliman Q.C. She earned her Bachelor of Science in Computer Engineering in October 2001. 
+                   Engr. Marave currently serves as the BS Computer Engineering Program Chairperson at PRMSU Iba, Zambales, 
+                   and has been actively involved in various faculty and extension roles within the university, with a special 
+                   highlight on community extension. She is a licensed professional teacher and holds professional memberships 
+                   with Colleges and Universities in the Philippines and the Institute of Computer Engineers of the Philippines
+                    as a Professional Member. An Accreditor of the Accrediting Agency of Chartered Colleges and Universities in
+                     the Philippines (AACCUP) and Internal Auditor of the International Standard Organization (ISO). 
+                     Additionally, she has contributed significantly to youth leadership programs and has received recognition 
+                     for her outstanding contributions and leadership. </p>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="DEBOMA.jpg" alt="Dean Image">
+        <div class="profile-text">
+            <h2>BS Electrical Engineering (BSEE)</h2>
+            <h2>GILBERT D. DEBOMA, REE, M.Eng.</h2>
+            <p> Engr Gilbert D. Deboma is a faculty of the College of Engineering for 24 years with an Academic Rank of 
+                Associate Professor V. He is a graduate of Bachelor of Science in Electrical Engineering at Technological 
+                Institute of the Philippines – Quezon City. He finished his Master of Science in Electronics Engineering at 
+                Andong National University – South Korea. He is currently taking up PhD in Agricultural Engineering at Central
+                Luzon State University. Engr Deboma is an active member of the Institute of Integrated Electrical Engineers, Inc., 
+                the accredited professional organization of electrical practitioners of the Philippines.  
+                He is the current dean of the College of Engineering and concurrent Program Chairperson of the Electrical Engineering Department.</p>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="DEDICATORIA.jpg" alt="Dean Image">
+        <div class="profile-text">
+            <h2>BS Mechanical Engineering (BSME)</h2>
+            <h2>MARLON JAMES A. DEDICATORIA, RMEE, Ph.D.</h2>
+            <p> Dr. Marlon James A. Dedicatoria is a licensed mechanical engineer and currently serves as the Vice President for Research and Development, as well as the Chairperson of the Mechanical Engineering Program at President Ramon Magsaysay State University (PRMSU) in Iba, Zambales. With over ten years of teaching experience, he has been instructing professional courses within the Bachelor of Science in Mechanical Engineering (BSME) program at PRMSU's College of Engineering. Additionally, he holds a lecturing position at the university's graduate school, where he teaches mathematics courses.
+
+                Dr. Dedicatoria earned his Bachelor of Science degree in Mechanical Engineering from Ramon Magsaysay Technological University in 2006. Subsequently, he pursued his Master of Science in Mechanical Design and Systems Engineering at Andong National University, South Korea, graduating in 2010. He furthered his academic pursuits by completing his PhD in Mechanical Design and Systems Engineering from Andong National University in 2013. Following his doctoral studies, he served as a post-doctoral fellow at the same university's Materials Behavior Evaluation Laboratory under the guidance of Prof. Hyung-Seop Shin from 2013 to 2014.
+                
+                His research publications primarily focus on the electromechanical property evaluation of high-temperature superconductors. Presently, Dr. Dedicatoria holds the position of Professor 3 at PRMSU.</p>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="DESIERTO.png" alt="Dean Image">
+        <div class="profile-text">
+            <h2>BS Mining Engineering (BSEM)</h2>
+            <h2>DOROTHY JOYCE SOLPICO DESIERTO</h2>
+            <p> Contents to be published soon....</p>
+        </div>
+    </div>
+    <div class="section-title">
+        PRMSU College of Engineering Faculty
+</div>
+<!-- Faculty Members Navbar -->
+<div class="facultymembers-navbar">
+    <ul>
+        <li><a href="#bsce-facultymembers" onclick="showFaculty('bsce-facultymembers')">BSCE Faculty Members</a></li>
+        <li><a href="#bscpe-facultymembers" onclick="showFaculty('bscpe-facultymembers')">BSCpE Faculty Members</a></li>
+        <li><a href="#bsee-facultymembers" onclick="showFaculty('bsee-facultymembers')">BSEE Faculty Members</a></li>
+        <li><a href="#bsme-facultymembers" onclick="showFaculty('bsme-facultymembers')">BSME Faculty Members</a></li>
+        <li><a href="#alliedandgeneraleducation-facultymembers" onclick="showFaculty('alliedandgeneraleducation-facultymembers')">Allied and General Education Faculty Members</a></li>
+    </ul>
+</div>
+
+<!-- Faculty Members Sections -->
+<div id="bsce-facultymembers" class="faculty-section">
+    <div class="faculty-card">
+        <img src="TABLIGAN.jpg" alt="Faculty Member 1">
+        <h3>Engr.  RONEL E. ROMERO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="DALUSONG.png" alt="Faculty Member 2">
+        <h3>Engr. JEMAR DALUSONG</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="ARAMAY.png" alt="Faculty Member 3">
+        <h3>Engr.  RAYMOND ARAMAY</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="ANTONIO.PNG" alt="Faculty Member 4">
+        <h3>Engr. ABRAHAM ANTONIO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="VICHO M.jpg" alt="Faculty Member 5">
+        <h3>Engr. MA. THEREZA VICHO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="VICHO V.jpg" alt="Faculty Member 6">
+        <h3>Engr. VICTOR D. VICHO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="TOMBALE.jpg" alt="Faculty Member 7">
+        <h3>Engr. ELENA LYN TOMBALE</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="BISQUERA.jpg" alt="Faculty Member 8">
+        <h3>Engr. RYV ANTHONY BISQUERA</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MANANGAN.jpg" alt="Faculty Member 9">
+        <h3>Engr.  JOVEN MANANGAN</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="ROMULO.jpg" alt="Faculty Member 10">
+        <h3>Engr. ELOISA ROMULO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="FERNANDEZ.jpg" alt="Faculty Member 11">
+        <h3>Engr. MARKO ANTONIO FERNANDEZ</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="Aramay ZM.jpg" alt="Faculty Member 12">
+        <h3>EEngr.  ZENDREE ARAMAY</h3>
+    </div>
+</div>
+
+<div id="bscpe-facultymembers" class="faculty-section">
+    <div class="faculty-card">
+        <img src="BARRERA.png" alt="Faculty Member 1">
+        <h3>Engr. RICKY S. BARRERA</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="ACAIN.png" alt="Faculty Member 2">
+        <h3>Engr. BRYAN CARLOS B. ACAIN</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="SABADO.jpg" alt="Faculty Member 3">
+        <h3>Engr. OLIVER A. SABADO, JR.</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MARTIN.jpg" alt="Faculty Member 4">
+        <h3>Engr. DIONISIO M. MARTIN, JR.</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="CANTILLO.jpg" alt="Faculty Member 5">
+        <h3>Engr. FROILAN G. CANTILLO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MORILLO.png" alt="Faculty Member 6">
+        <h3>Engr. ALLAN JAY L. MORILLO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="BASILIO.jpg" alt="Faculty Member 7">
+        <h3>Engr. DENNIZE JIANA R. BASILIO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="LEOMO.png" alt="Faculty Member 8">
+        <h3>Engr. KIRK LEE P. LEOMO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="REMOLACIO.jpg" alt="Faculty Member 9">
+        <h3>Engr. MARTEEN BERAVON REMOLACIO</h3>
+    </div>
+</div>
+
+<div id="bsee-facultymembers" class="faculty-section">
+    <div class="faculty-card">
+        <img src="PARALLAG.jpg" alt="Faculty Member 1">
+        <h3>Engr. MARK LESTER PARALLAG</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MARQUEZ.png" alt="Faculty Member 2">
+        <h3>Engr. DORIS H. MARQUEZ</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="ORIANZA.jpg" alt="Faculty Member 3">
+        <h3>Engr. SENATO ORIANZA</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MARAFINA.jpg" alt="Faculty Member 4">
+        <h3>Engr. CHRISTIAN MARAFINA</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="EDARAD.JPG" alt="Faculty Member 5">
+        <h3>Engr. FERNAN EDARAD</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="BALICACO.jpg" alt="Faculty Member 6">
+        <h3>Engr. RUE LEI BALICACO</h3>
+    </div>
+</div>
+
+<div id="bsme-facultymembers" class="faculty-section">
+    <div class="faculty-card">
+        <img src="BAUTISTA.jpg" alt="Faculty Member 1">
+        <h3>Engr.  Ma. Karla Jessica Bautista</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="CUEVAS.jpg" alt="Faculty Member 2">
+        <h3>Engr. JASPER ANTHONY CUEVAS</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="ROMUALDO.jpg" alt="Faculty Member 3">
+        <h3>Engr. MICHAEL ROMUALDO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="PADUA.jpg" alt="Faculty Member 4">
+        <h3>Engr. NHOELLE PADUA</h3>
+    </div>
+</div>
+
+<div id="alliedandgeneraleducation-facultymembers" class="faculty-section">
+    <div class="faculty-card">
+        <img src="EBUE.png" alt="Faculty Member 1">
+        <h3>Engr. MELISSA M. EBUE</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="RICO.jpg" alt="Faculty Member 2">
+        <h3>Engr. CLARISSE HOPE M. RICO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="BUGAYONG.png" alt="Faculty Member 3">
+        <h3>Dr. EMELYN E. BUGAYONG</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="DULLAS.jpg" alt="Faculty Member 4">
+        <h3>Engr. CINDY DULLAS</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="PUNZALAN.JPG" alt="Faculty Member 5">
+        <h3>Dr. EDNA PUNZALAN</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="DANILA.jpg" alt="Faculty Member 6">
+        <h3>Ms. JANE D. DANILA</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MEDRANO.jpg" alt="Faculty Member 7">
+        <h3>Mr. LUCIANO MEDRANO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="BESA.jpg" alt="Faculty Member 8">
+        <h3>Ms. APRIL BESA</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="MADELLE.jpg" alt="Faculty Member 9">
+        <h3>Ms. SANTOS, MADELLE</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="PARANGAT.jpg" alt="Faculty Member 10">
+        <h3>Ms. MONICA PARANGAT</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="QUITORIANO.jpg" alt="Faculty Member 11">
+        <h3>Ms. KAREN QUITORIANO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="PELINIO.jpg" alt="Faculty Member 12">
+        <h3>Ms. JIO ERIKA PELINIO</h3>
+    </div>
+    <div class="faculty-card">
+        <img src="VELARDE.jpg" alt="Faculty Member 12">
+        <h3>Ms. MAE JOYCE VELARDE</h3>
+    </div>
+</div>
+
+ <!-- Footer -->
+    <div class="footer" style="background-image: url('PRMSU.jfif');">
+     <p>Contact: info@prmsu.edu.ph | Copyright 2024 PRMSU College of Engineering</p>
+ </div>
+<script>
+    function showFaculty(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.faculty-section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Show the selected section
+        const selectedSection = document.getElementById(sectionId);
+        selectedSection.style.display = 'block';
+    }
+</script>
+</html>
